@@ -24,11 +24,9 @@
 
 <body <?php body_class(); ?>>
 <div id="page" class="site">
-	<a class="skip-link screen-reader-text" href="#content"><?php esc_html_e( 'Skip to content', 'devils_trap_bakery' ); ?></a>
-
 	<header>
-		<div class="container flex">
-			<h1><a href="<?php echo get_home_url();?>"><?php echo bloginfo('name'); ?></a></h1>
+		<div class="customHeader flex">
+			<?php the_custom_logo(); ?>
 			<button class="menu-toggle"></button>
 			<nav id="site-navigation" class="main-navigation">
 				<?php

@@ -15,8 +15,14 @@
 get_header();
 ?>
 
-<section id="intro">
-	<div class="bg" style="background-image: url('<?php echo the_post_thumbnail_url(); ?>')"></div>
+<section id="intro" class="bgColored flex">
+	<div class="floatWrapper">
+		<h1>Life is better with coffee</h1>
+		<button class="btn">Shop goods</button>
+	</div>
+	<div class="bgWrapper">
+		<div class="bg" style="background-image: url('<?php echo the_post_thumbnail_url(); ?>')"></div>
+	</div>
 </section>
 
 <?php
