@@ -16,8 +16,9 @@
 	<div id="newsletter" class="bgColored">
 		<div class="container">
 			<div class="flex">
-			<h2>Follow us for the latest news</h2>
-			<input type="email" placeholder="eg. info@info.com" />
+				<h4>Follow us for the latest news</h4>
+				<input type="email" placeholder="eg. info@info.com" />
+				<button></button>
 			</div>
 		</div>
 	</div>

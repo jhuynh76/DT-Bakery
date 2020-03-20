@@ -15,14 +15,53 @@
 get_header();
 ?>
 
+<!-- INTRO -->
 <section id="intro" class="bgColored flex">
-	<div class="floatWrapper">
-		<h1>Life is better with coffee</h1>
-		<button class="btn">Shop goods</button>
+	<div class="floatWrapper container"><?php
+		while(have_rows('intro')):the_row(); ?>
+			<h1><?php the_sub_field('title') ?></h1>
+			<?php the_sub_field('text') ?>
+			<button class="btn"><?php echo get_sub_field('button')['title'] ?></button><?php
+		endwhile; ?>
 	</div>
 	<div class="bgWrapper">
-		<div class="bg" style="background-image: url('<?php echo the_post_thumbnail_url(); ?>')"></div>
+		<div class="bgFull" style="background-image: url('<?php echo the_post_thumbnail_url(); ?>')"></div>
 	</div>
+</section>
+
+<!-- OUR PRODUCTS -->
+<section id="products-snippet">
+	<div class="container">
+		<h2 class="heading">Our Products</h2>
+		<div class="grid"><?php
+		$cat = get_categories(array(
+			'orderby' => 'name',
+			'exclude' => array(1)
+		));
+		$taxonomyTerm = get_queried_object();
+		foreach($cat as $c):?>
+			<div class="cols cols-3">
+				<div class="frame">
+					<a href=""><img src="../devils_trap_bakery/wp-content/uploads/2020/03/DT.png" /></a>
+					<h4><?php echo $c->name; ?></h4>
+					<p><?php echo $c->description; ?></p>
+					<a class="btn" href="<?php the_permalink(); ?>">Shop <?php echo $c->name; ?></a>
+				</div>
+			</div><?php
+		endforeach; ?>
+		</div>
+	</div>
+	<img class="opaqueBanner" src="http://localhost:81/devils_trap_bakery/wp-content/uploads/2020/03/opaqueBanner.png" />
+</section>
+
+<!-- ABOUT US -->
+<section id="about-snippet" class="bgColored flex"><?php
+	while(have_rows('about_us')):the_row(); ?>
+	<div class="bg" style="background-image: url('<?php echo get_sub_field('image')['url']; ?>')"></div>
+	<div class="article">
+		<?php the_sub_field('text') ?>
+	</div><?php
+	endwhile; ?>
 </section>
 
 <?php
