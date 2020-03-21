@@ -24,6 +24,11 @@
 	</div>
 
 	<footer>
+		<div class="container">
+			<?php wp_nav_menu(array(
+				'menu' => 'socialMedia'
+			)); ?>
+		</div>
 		<div class="bottomFooter">
 			<label class="items"><?php echo date('Y') ?> Devil's Trap Bakery Ltd.</label>
 			<a class="items"href="">Terms & Conditions</a>
@@ -35,4 +40,13 @@
 <?php wp_footer(); ?>
 
 </body>
+
+<script src="<?php echo bloginfo('template_directory'); ?>/js/jquery-3.4.1.min.js'); ?>"></script>
+<script>
+	$('#menu-socialmedia li a').each(function(){
+		$(this).text('');
+	});
+
+</script>
+
 </html>

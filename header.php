@@ -25,9 +25,8 @@
 <body <?php body_class(); ?>>
 <div id="page" class="site">
 	<header>
-		<div class="customHeader flex">
+		<div class="flex">
 			<?php the_custom_logo(); ?>
-			<button class="menu-toggle"></button>
 			<nav id="site-navigation" class="main-navigation">
 				<?php
 				wp_nav_menu( array(
@@ -36,6 +35,7 @@
 				) );
 				?>
 			</nav>
+			<button class="menu-toggle"></button>
 		</div>
 	</header>
 
