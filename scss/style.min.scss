@@ -14,7 +14,7 @@
 	## Menus
 # Footer
 # Home
-# Categories
+# Categories / Our Products (Product List)
 # Locations
 # Widgets
 # Content
@@ -30,13 +30,6 @@ $padding: 15px;
 
 $red: #ee1d24;
 $grey: #efefef;
-$color_light: #f9efd7;
-$color_dark: #461e00;
-$color_accents: #ffba07;
-
-// $color_light: #f9efd7;
-// $color_dark: #461e00;
-// $color_accents: #ffba07;
 
 /*--------------------------------------------------------------
 # Normalize
@@ -48,8 +41,6 @@ html {
 }
 
 body {
-	// background-color: $color_light;
-	// color: $color_dark;
 	font-size: 16px;
 	font-family: 'Montserrat', sans-serif;
 	font-weight: 400;
@@ -173,7 +164,7 @@ template, [hidden] {display: none;}
 /*--------------------------------------------------------------
 ## Transition
 --------------------------------------------------------------*/
-.btn, a{transition: 0.3s ease-in-out;}
+.btn, a {transition: 0.3s ease-in-out;}
 
 /*--------------------------------------------------------------
 ## Links
@@ -194,6 +185,7 @@ h1, h2, h3, h4, h5, h6 {
 	text-transform: uppercase;
 	margin-top: 0;
 	margin-bottom: $padding * 2;
+	font-weight: 700;
 }
 
 h1{font-size: 5em; text-align: center;}
@@ -262,10 +254,10 @@ big {font-size: 125%;}
 	text-align: center;
 }
 
-section{
-	margin-bottom: 5%;
+// main DT img
+.dtAsset{
+	width: 200px;;
 }
-
 /*--------------------------------------------------------------
 ## Background (BG)
 --------------------------------------------------------------*/
@@ -305,6 +297,7 @@ section{
 
 .customHeader{
 	height: 600px;
+	color: white;
 }
 
 *,
@@ -495,6 +488,8 @@ header{
 	}
 }
 
+.customHeader {margin-bottom: $padding * 3;}
+
 /*--------------------------------------------------------------
 ## Menus
 --------------------------------------------------------------*/
@@ -518,13 +513,6 @@ header{
 	margin: 0 auto;
 	.menu-topnav-container{align-self: center;}
 
-	li {
-		float: left;
-		position: relative;
-	
-		a{padding: 0 $padding * 2;}
-	}
-
 	ul {
 		// display: none;
 		font-weight: 600;
@@ -532,16 +520,35 @@ header{
 		margin: 0;
 		padding-left: 0;
 
-		ul {
-			box-shadow: 0 3px 3px rgba(0, 0, 0, 0.2);
-			font-weight: 100;
+		li {
 			float: left;
-			position: absolute;
-			top: 100%;
-			left: -999em;
-			z-index: 99999;
+			a{padding: 0 $padding * 2;}
 
-			a {width: 200px;}
+			&:hover{
+				.sub-menu {display: block}
+			}
+		}
+
+		ul {
+			display: none;
+			position: absolute;
+			background-color: white;
+			font-weight: 100;
+			z-index: 99999;
+			width: 100%;
+			left: 0;
+			padding: 2%;
+			border-top: 1px solid #e5e5e5;
+
+			li{
+				@extend h4;
+				float: initial;
+				margin-bottom: $padding;
+				padding: 0;
+				// width: 100%;
+				@extend .container;
+				a {padding: 0;}
+			}
 
 			ul {
 				left: -999em;
@@ -551,20 +558,34 @@ header{
 	}
 }
 
-.main-navigation ul ul li:hover > ul,
-.main-navigation ul ul li.focus > ul {left: 100%;}
-
-.main-navigation ul li:hover > ul,
-.main-navigation ul li.focus > ul {left: auto;}
+// .main-navigation ul ul li:hover > ul,
+// .main-navigation ul ul li.focus > ul {left: 100%;}
 
 /*--------------------------------------------------------------
 # Footer
 --------------------------------------------------------------*/
 footer{
 
-	.container{
-		padding: 2%;
+	img{width: 20%;}
+	#menu-topnav{width: 30%;}
+
+	.menu, .sub-menu{
+		margin: 0;
+		padding-left: 0;
+		list-style: none;
 	}
+
+	.locationContainer{
+		width: 30%;
+		h4{margin-bottom: $padding;}
+		a{
+			display: block;
+			margin-bottom: 10px;
+			&:last-of-type{margin-bottom: 0;}
+		}
+	}
+
+	.container{padding: 2%;}
 	.bottomFooter{
 		font-size: 0.8em;
 		padding: 15px;
@@ -580,10 +601,25 @@ footer{
 	}
 }
 
-#menu-socialmedia{
-	margin: 0;
-	padding-left: 0;
-	list-style: none;
+#menu-topnav{
+	li{
+		margin-bottom: $padding;
+		a{
+			@extend h4;
+			display: block;
+			margin-bottom: 10px;
+		}
+		.sub-menu li{
+			margin-bottom: 10px;
+			a{
+				font-size: initial;
+				font-weight: 100;
+			}
+		}
+	}
+}
+
+#menu-socialmedia{	
 	display: flex;
 
 	li{
@@ -633,10 +669,13 @@ footer{
 /*--------------------------------------------------------------
 # Home
 --------------------------------------------------------------*/
-.home h1{
-	font-family: 'Montserrat', sans-serif;
-	font-weight: 900;
-	letter-spacing: 4px;
+.home{
+	section{margin-bottom: 5%;}
+	h1{
+		font-family: 'Montserrat', sans-serif;
+		font-weight: 900;
+		letter-spacing: 4px;
+	}
 }
 
 #intro{
@@ -650,7 +689,6 @@ footer{
 		transform: rotate(15deg);
 		filter: drop-shadow(2px 2px 2px black);
 	}
-
 }
 
 #about-snippet{
@@ -685,11 +723,9 @@ footer{
 }
 
 /*--------------------------------------------------------------
-# Categories
+# Categories / Our Products (Product List)
 --------------------------------------------------------------*/
-.category{
-	section:first-of-type{margin-bottom: $padding * 3;}
-
+.list{
 	.grid{
 		h4{margin-bottom: 10px;}
 		figure{
@@ -708,10 +744,22 @@ footer{
 }
 
 #productList{
-	h2{
+	margin-bottom: 5%;
+	
+	.titleRow{
 		margin-bottom: 7%; 
 		padding-bottom: $padding * 2; 
 		border-bottom: 1px solid black;
+
+		h2{margin-bottom: 0; align-self: flex-end;}
+		.btnFilterWrapper{
+			margin-left: auto;
+			&:before{
+				content: 'Filber By:';
+				display: block;
+				margin-bottom: 5px;
+			}
+		}
 
 		sup{
 			margin-left: 10px;
@@ -719,6 +767,16 @@ footer{
 			font-weight: 100;
 		}
 	}
+}
+
+#btnFilter{
+	&:hover{
+		background-color: $red;
+		color: white;
+		border: 1px solid $red;	
+	}
+
+	option{background-color: white; color: black;}
 }
 
 /*--------------------------------------------------------------

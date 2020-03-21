@@ -25,9 +25,12 @@
 
 	<footer>
 		<div class="container">
-			<?php wp_nav_menu(array(
-				'menu' => 'socialMedia'
-			)); ?>
+			<?php dtAsset(); ?>
+			<!-- Main nav repeat -->
+			<?php wp_nav_menu(array('menu' => 'topNav')); ?>
+
+			<!-- Social media menu -->
+			<?php wp_nav_menu(array( 'menu' => 'socialMedia' )); ?>
 		</div>
 		<div class="bottomFooter">
 			<label class="items"><?php echo date('Y') ?> Devil's Trap Bakery Ltd.</label>
@@ -45,6 +48,16 @@
 <script>
 	$('#menu-socialmedia li a').each(function(){
 		$(this).text('');
+	});
+
+	$('#btnFilter').change(function(){
+		var val = $('#btnFilter option:selected').val();
+		$('#productList .cols').css('display', 'none');
+		$('#productList .' + val).css('display', 'block');
+
+		if ( $('#btnFilter option:selected').val() == 'default' ){
+			$('#productList .cols').css('display', 'block');
+		}
 	});
 
 </script>

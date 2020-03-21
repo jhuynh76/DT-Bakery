@@ -158,3 +158,8 @@ require get_template_directory() . '/inc/customizer.php';
 if ( defined( 'JETPACK__VERSION' ) ) {
 	require get_template_directory() . '/inc/jetpack.php';
 }
+
+
+function dtAsset(){?>
+	<img class="dtAsset" src="http://localhost:81/devils_trap_bakery/wp-content/uploads/2020/03/DT.png" /><?php
+}

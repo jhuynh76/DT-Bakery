@@ -42,7 +42,7 @@ get_header();
 		foreach($cat as $c):?>
 			<div class="cols cols-3">
 				<div class="frame">
-					<a href="<?php echo get_category_link($c->term_id); ?>"><img src="../devils_trap_bakery/wp-content/uploads/2020/03/DT.png" /></a>
+					<a href="<?php echo get_category_link($c->term_id); ?>"><?php dtAsset(); ?></a>
 					<h4><?php echo $c->name; ?></h4>
 					<p><?php echo $c->description; ?></p>
 					<a class="btn" href="<?php echo get_category_link($c->term_id); ?>">Shop <?php echo $c->name; ?></a>

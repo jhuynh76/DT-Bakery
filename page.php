@@ -15,15 +15,13 @@
 get_header();
 ?>
 
-<div class="container">
-
 <?php
 if (is_page('locations')):
 	get_template_part('template-parts/locations');
+elseif (is_page('our-products')):
+	get_template_part('template-parts/productLanding');
 endif;
 ?>
-
-</div>
 
 <?php
 get_sidebar();
