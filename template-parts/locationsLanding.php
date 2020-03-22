@@ -8,8 +8,9 @@
  */
 
 ?>
-<section id="locations">
-	<h1>Our Bakeries</h1>
+<?php customHeader('Our Bakeries'); ?>
+
+<section id="list">
 	<div class="container">
 		<div class="grid"><?php
 			$locations = new WP_Query(array(

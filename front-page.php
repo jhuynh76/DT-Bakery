@@ -64,5 +64,12 @@ get_header();
 	endwhile; ?>
 </section>
 
+<!-- Columned content -->
+<Section class="columnedContent">
+	<div class="container">
+		<?php columnedContent(); ?>
+	</div>
+</section>
+
 <?php
 get_footer();

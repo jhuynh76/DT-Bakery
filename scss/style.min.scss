@@ -16,6 +16,7 @@
 # Home
 # Categories / Our Products (Product List)
 # Locations
+	# Locations Single
 # Widgets
 # Content
 	## Posts and pages
@@ -30,6 +31,7 @@ $padding: 15px;
 
 $red: #ee1d24;
 $grey: #efefef;
+$light_grey: #e5e5e5;
 
 /*--------------------------------------------------------------
 # Normalize
@@ -184,7 +186,7 @@ a {
 h1, h2, h3, h4, h5, h6 {
 	text-transform: uppercase;
 	margin-top: 0;
-	margin-bottom: $padding * 2;
+	margin-bottom: $padding;
 	font-weight: 700;
 }
 
@@ -258,9 +260,15 @@ big {font-size: 125%;}
 .dtAsset{
 	width: 200px;;
 }
+
 /*--------------------------------------------------------------
 ## Background (BG)
 --------------------------------------------------------------*/
+.customHeader{
+	height: 600px;
+	color: white;
+}
+
 .bgWrapper{
 	background-color: $red;
 	position: absolute;
@@ -293,11 +301,6 @@ big {font-size: 125%;}
 	align-self: center;
 	text-align: center;
 	width: 100%;
-}
-
-.customHeader{
-	height: 600px;
-	color: white;
 }
 
 *,
@@ -341,7 +344,6 @@ table {
 --------------------------------------------------------------*/
 .grid{
 	@extend .flex-wrap;
-	h3{margin-bottom: $padding;}
 	.frame{
 		margin: 0 $padding $padding;
 		padding: 0 $padding $padding;
@@ -538,7 +540,7 @@ header{
 			width: 100%;
 			left: 0;
 			padding: 2%;
-			border-top: 1px solid #e5e5e5;
+			border-top: 1px solid $light_grey;
 
 			li{
 				@extend h4;
@@ -577,7 +579,6 @@ footer{
 
 	.locationContainer{
 		width: 30%;
-		h4{margin-bottom: $padding;}
 		a{
 			display: block;
 			margin-bottom: 10px;
@@ -669,56 +670,56 @@ footer{
 /*--------------------------------------------------------------
 # Home
 --------------------------------------------------------------*/
-.home{
+#home{
 	section{margin-bottom: 5%;}
 	h1{
 		font-family: 'Montserrat', sans-serif;
 		font-weight: 900;
 		letter-spacing: 4px;
 	}
-}
 
-#intro{
-	height: 800px;
-	background-color: transparent;
-
-	img{
-		width: 400px;
-		display: flex;
-		margin: 0 200px 0 auto;
-		transform: rotate(15deg);
-		filter: drop-shadow(2px 2px 2px black);
+	#intro{
+		height: 800px;
+		background-color: transparent;
+	
+		img{
+			width: 400px;
+			display: flex;
+			margin: 0 200px 0 auto;
+			transform: rotate(15deg);
+			filter: drop-shadow(2px 2px 2px black);
+		}
 	}
-}
-
-#about-snippet{
-	height: 800px;
-	.bg{width: 60%;}
-	.article{
-		width: 40%;
-		padding: 5%;
-		align-self: center;
-		p,li,pre{font-size: 1.2em;}
+	
+	#about-snippet{
+		height: 800px;
+		.bg{width: 60%;}
+		.article{
+			width: 40%;
+			padding: 5%;
+			align-self: center;
+			p,li,pre{font-size: 1.2em;}
+		}
 	}
-}
-
-#products-snippet{
-	position: relative;
-	overflow: hidden;
-	.heading{margin-bottom: 10%;}
-	.cols{
-		text-align: center;
-		img{width: 200px; margin-bottom: $padding * 3;}
-		p{margin-bottom: $padding * 4;}
-	}
-	.opaqueBanner{
-		position: absolute;
-		top:0; bottom:0;
-		margin: auto;
-		max-width: initial;
-		width: 300%;
-		opacity: 0.1;
-		pointer-events: none;
+	
+	#products-snippet{
+		position: relative;
+		overflow: hidden;
+		.heading{margin-bottom: 10%;}
+		.cols{
+			text-align: center;
+			img{width: 200px; margin-bottom: $padding * 3;}
+			p{margin-bottom: $padding * 4;}
+		}
+		.opaqueBanner{
+			position: absolute;
+			top:0; bottom:0;
+			margin: auto;
+			max-width: initial;
+			width: 300%;
+			opacity: 0.1;
+			pointer-events: none;
+		}
 	}
 }
 
@@ -732,7 +733,7 @@ footer{
 			height: 450px;
 			overflow: hidden;
 			margin-bottom: $padding;
-			border-bottom: 1px solid #e5e5e5;
+			border-bottom: 1px solid $light_grey;
 			img{
 				height: inherit;
 				width: auto;
@@ -782,7 +783,7 @@ footer{
 /*--------------------------------------------------------------
 # Locations
 --------------------------------------------------------------*/
-#locations{
+#list{
 	margin-bottom: 5%;
 	.grid .cols{
 		figure{
@@ -811,6 +812,44 @@ footer{
 	}
 }
 
+/*--------------------------------------------------------------
+# Locations Single
+--------------------------------------------------------------*/
+// no red tint on these headers, high opacity with black overlay
+.locationSingle{
+	.customHeader{
+		margin-bottom: 0;
+		.bgWrapper{background-color: black;}
+		.bgFull{opacity: 0.6;}
+	}
+
+	section{margin-bottom: 5%;}
+
+	.menuOptions{
+		background-color: $light_grey;
+		padding: $padding * 4 0;
+		.cols{text-align: center;}
+		h4{
+			margin-bottom: 5px;
+			&:before{
+				display: block;
+				color: $red;
+				font-size: 2em;
+				font-family: 'Font Awesome 5 Free';
+				font-weight: 900;
+			}
+		}
+		.optionLocation h4:before{content: '\f3c5';}
+		.optionMenu h4:before{content: '\f1ea';}
+		.optionCatering h4:before{content: '\f1fd';}
+
+		a{
+			color: $red;
+			text-decoration: underline;
+			font-weight: 600;
+		}
+	}
+}
 /*--------------------------------------------------------------
 # Widgets
 --------------------------------------------------------------*/

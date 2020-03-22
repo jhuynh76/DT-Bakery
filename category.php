@@ -13,23 +13,19 @@
  */
 
 get_header();
+
+// Variables
+$cat = get_category(get_query_var('cat'));
+$cat_id = $cat->cat_ID;
+$cat_num = $cat->count;
+$cat_name = $cat->name;
 ?>
 
-<section class="customHeader flex">
-	<div class="floatWrapper container">
-		<?php dtAsset() ?>
-		<h1><?php echo single_cat_title(); ?></h1>
-	</div>
-	<div class="bgWrapper">
-		<div class="bgFull" style="background-image: url('<?php echo the_post_thumbnail_url(); ?>')"></div>
-	</div>
-</section>
+<?php customHeader($cat_name); ?>
 
 <section id="productList">
 	<div class="container list"><?php
-		$cat = get_category(get_query_var('cat'));
-		$cat_id = $cat->cat_ID;
-		$cat_num = $cat->count; ?>
+		 ?>
 		
 		<div class="titleRow flex">
 			<h2><?php echo single_cat_title(); ?><sup>(<?php echo $cat_num; ?>)</sup></h2>

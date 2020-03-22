@@ -8,15 +8,7 @@
  */
 
 ?>
-<section class="customHeader flex">
-	<div class="floatWrapper container">
-		<?php dtAsset(); ?>
-		<h1><?php the_title(); ?></h1>
-	</div>
-	<div class="bgWrapper">
-		<div class="bgFull" style="background-image: url('<?php echo the_post_thumbnail_url(); ?>')"></div>
-	</div>
-</section>
+<?php customHeader(''); ?>
 
 <section id="productList">
 	<div class="container list"><?php

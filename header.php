@@ -9,7 +9,14 @@
  * @package Devil\'s_Trap_Bakery
  */
 
+ global $post;
+ $slug = $post->post_name;
+
+ if (is_singular('locations')):
+	$class = 'locationSingle';
+ endif;
 ?>
+
 <!doctype html>
 <html <?php language_attributes(); ?>>
 <head>
@@ -39,4 +46,4 @@
 		</div>
 	</header>
 
-	<main>
+	<main id="<?php echo $slug; ?>" class="<?php echo $class; ?>">
