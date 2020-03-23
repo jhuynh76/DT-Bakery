@@ -9,6 +9,7 @@
 # Elements
 	## Background (BG)
 	## Grid
+	## Gallery
 # Forms
 # Header
 	## Menus
@@ -257,8 +258,12 @@ big {font-size: 125%;}
 }
 
 // main DT img
-.dtAsset{
-	width: 200px;;
+.dtAsset{width: 200px;}
+
+article{
+	max-width: 500px;
+	margin: 0 auto;
+	align-self: center;
 }
 
 /*--------------------------------------------------------------
@@ -376,9 +381,18 @@ table {
 }
 
 /*--------------------------------------------------------------
+## Gallery
+--------------------------------------------------------------*/
+.gallery{width: 100%;}
+.gallery-row{
+	figure{width: 25%;}
+}
+
+/*--------------------------------------------------------------
 # Forms
 --------------------------------------------------------------*/
 .btn, a.btn{
+	display: inline-block;
 	padding: $padding $padding * 2;
 	background-color: $red;
 	color: white;

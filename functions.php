@@ -195,87 +195,64 @@ function customHeader($title){
 /*--------------------------------------------------------------
 # Columned Content
 --------------------------------------------------------------*/
-function columnedContent(){?>
-	<div class="flex-wrap"><?php
-		while(have_rows('columned_content')):the_row();?>
+function columnedContent(){
+	while(have_rows('columned_content')):the_row();?>
+		<div class="flex-wrap">
 
-			<!-- LEFT COLS -->
-			<div class="colLeft cols cols-2"><?php
-				while(have_rows('left')):the_row();
-					if (get_row_layout() == 'text'):?>
-						<div class="article"><?php the_sub_field('text'); ?></div><?php
-							
-					elseif (get_row_layout() == 'button'):?>
-						<a class="btn" href="<?php get_sub_field('button')['url']; ?>"><?php echo get_sub_field('button')['title']; ?></a><?php
-						
-					elseif (get_row_layout() == 'image'):?>
-						<figure>
-							<img src="<?php echo get_sub_field('image')['url']; ?>" alt="<?php echo get_sub_field('image')['alt'] ?>" />
-						</figure><?php
+			<!-- LEFT COLS --><?php
+				columnedContentConditions('left');
+				columnedContentConditions('right'); ?>
+	
+		</div>
+		
+		<div class="row"><?php
+			columnedContentConditions('row'); ?>
+		</div><?php
+	endwhile;
+}
 
-					elseif (get_row_layout() == 'gallery_masonry'):
-						$galleryMasonry = get_sub_field('gallery_masonry');
-						foreach($galleryMasonry as $gm):?>
-							<figure>
-								<img src="<?php echo $gm['url']; ?>" alt="<?php echo $gm['alt'] ?>" />
-							</figure><?php
-						endforeach;
-
-					elseif (get_row_layout() == 'gallery_row'):
-						$galleryRow = get_sub_field('gallery_row');
-						echo '<div class="gallery flex">';
-						foreach($galleryRow as $gr):?>
-							<figure>
-								<img src="<?php echo $gr['url']; ?>" alt="<?php echo $gr['alt'] ?>" />
-							</figure><?php
-						endforeach;
-						echo '</div>';
-
-					elseif (get_row_layout() == 'video'):
-						the_sub_field('video');
-
-					endif;
-				endwhile;?>
-			</div>
-
-			<!-- RIGHT COLS -->
-			<div class="colRight cols cols-2"><?php
-				while(have_rows('right')):the_row();
-					if (get_row_layout() == 'text'):?>
-						<div class="article"><?php the_sub_field('text'); ?></div><?php
-							
-					elseif (get_row_layout() == 'button'):?>
-						<a class="btn" href="<?php get_sub_field('button')['url']; ?>"><?php echo get_sub_field('button')['title']; ?></a><?php
-						
-					elseif (get_row_layout() == 'image'):?>
-						<figure>
-							<img src="<?php echo get_sub_field('image')['url']; ?>" alt="<?php echo get_sub_field('image')['alt'] ?>" />
-						</figure><?php
-
-					elseif (get_row_layout() == 'gallery_masonry'):
-						$galleryMasonry = get_sub_field('gallery_masonry');
-						foreach($galleryMasonry as $gm):?>
-							<figure>
-								<img src="<?php echo $gm['url']; ?>" alt="<?php echo $gm['alt'] ?>" />
-							</figure><?php
-						endforeach;
-
-					elseif (get_row_layout() == 'gallery_row'):
-						$galleryRow = get_sub_field('gallery_row');
-						echo '<div class="gallery flex">';
-						foreach($galleryRow as $gr):?>
-							<figure>
-								<img src="<?php echo $gr['url']; ?>" alt="<?php echo $gr['alt'] ?>" />
-							</figure><?php
-						endforeach;
-						echo '</div>';
-
-					elseif (get_row_layout() == 'video'):
-						the_sub_field('video');
-
-					endif;
-				endwhile;?>
+function columnedContentConditions($position){
+	while(have_rows($position)):the_row();
+		if (get_row_layout() == 'text'):?>
+			<div class="cols cols-2 flex article">
+				<article><?php
+					the_sub_field('text'); ?>
+				</artivle>
 			</div><?php
-		endwhile;?>
-	</div><?php
+							
+		elseif (get_row_layout() == 'button'):?>
+			<a class="btn" href="<?php echo get_sub_field('button')['url']; ?>"><?php echo get_sub_field('button')['title']; ?></a><?php
+						
+		elseif (get_row_layout() == 'image'):?>
+			<figure class="cols cols-2">
+				<img src="<?php echo get_sub_field('image')['url']; ?>" alt="<?php echo get_sub_field('image')['alt'] ?>" />
+			</figure><?php
+
+		elseif (get_row_layout() == 'gallery_masonry'):
+			$galleryMasonry = get_sub_field('masonry');
+			echo '<div class="gallery gallery-masonry">';
+				foreach($galleryMasonry as $gm):?>
+					<figure>
+						<img src="<?php echo $gm['url']; ?>" alt="<?php echo $gm['alt'] ?>" />
+					</figure><?php
+				endforeach;
+			echo '</div>';
+
+		elseif (get_row_layout() == 'gallery_row'):
+			$galleryRow = get_sub_field('row');
+			echo '<div class="gallery gallery-row flex">';
+				foreach($galleryRow as $gr):?>
+					<figure>
+						<img src="<?php echo $gr['url']; ?>" alt="<?php echo $gr['alt'] ?>" />
+					</figure><?php
+				endforeach;
+			echo '</div>';
+
+		elseif (get_row_layout() == 'video'):?>
+			<div class="cols cols-2"><?php
+				the_sub_field('video');?>
+			</div><?php
+
+		endif;
+	endwhile;
 }

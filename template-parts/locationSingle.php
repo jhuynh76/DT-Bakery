@@ -24,14 +24,12 @@
 		</div>
 
 		<div class="cols cols-3 optionCatering">
-			<h4>Location</h4>
+			<h4>Catering</h4>
 			<a href="">Place your order</a>
 		</div>
 	<div id="map"></div>
 </section>
 
 <Section class="columnedContent">
-	<div class="container">
-		<?php columnedContent(); ?>
-	</div>
+	<?php columnedContent(); ?>
 </section>
