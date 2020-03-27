@@ -45,6 +45,7 @@
 </body>
 
 <script src="<?php echo bloginfo('template_directory'); ?>/js/jquery-3.4.1.min.js'); ?>"></script>
+<script src="<?php echo bloginfo('template_directory'); ?>/js/slick.min.js"></script>
 <script>
 	$('#menu-socialmedia li a').each(function(){
 		$(this).text('');

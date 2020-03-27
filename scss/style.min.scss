@@ -106,9 +106,6 @@ button,
 input {overflow: visible;}
 
 button,
-select {text-transform: none;}
-
-button,
 [type="button"],
 [type="reset"],
 [type="submit"] {-webkit-appearance: button;}
@@ -474,7 +471,10 @@ input[type="datetime-local"]:focus,
 input[type="color"]:focus,
 textarea:focus {color: #111;}
 
-select {border: 1px solid #ccc;}
+select {
+	border: 1px solid #ccc;
+	text-transform: capitalize;
+}
 textarea {width: 100%; overflow: auto;}
 
 /*--------------------------------------------------------------
@@ -740,7 +740,9 @@ footer{
 /*--------------------------------------------------------------
 # Categories / Our Products (Product List)
 --------------------------------------------------------------*/
-.list{
+#productList{
+	margin-bottom: 5%;
+
 	.grid{
 		h4{margin-bottom: 10px;}
 		figure{
@@ -756,10 +758,6 @@ footer{
 			}
 		}
 	}
-}
-
-#productList{
-	margin-bottom: 5%;
 	
 	.titleRow{
 		margin-bottom: 7%; 
@@ -785,6 +783,9 @@ footer{
 }
 
 #btnFilter{
+	text-transform: capitalize;
+	letter-spacing: initial;
+
 	&:hover{
 		background-color: $red;
 		color: white;
@@ -837,7 +838,8 @@ footer{
 		.bgFull{opacity: 0.6;}
 	}
 
-	section{margin-bottom: 5%;}
+	section:last-of-type{margin-bottom: 5%;}
+
 
 	.menuOptions{
 		background-color: $light_grey;
@@ -867,8 +869,10 @@ footer{
 /*--------------------------------------------------------------
 # Widgets
 --------------------------------------------------------------*/
-.widget {margin: 0 0 1.5em;}
-.widget select {max-width: 100%;}
+.widget {
+	margin: 0 0 1.5em;
+	select {max-width: 100%;}
+}
 
 /*--------------------------------------------------------------
 # Content

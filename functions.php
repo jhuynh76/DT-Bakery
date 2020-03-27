@@ -164,6 +164,7 @@ if ( defined( 'JETPACK__VERSION' ) ) {
 ----------------------------------------------------------------
 # Assets
 # Custom Header
+# Product Grid
 # Columned Content
 --------------------------------------------------------------*/
 /*--------------------------------------------------------------
@@ -190,6 +191,32 @@ function customHeader($title){
 		<div class="bgFull" style="background-image: url('<?php echo the_post_thumbnail_url(); ?>')"></div>
 	</div>
 </section><?php
+}
+
+/*--------------------------------------------------------------
+# Product Grid
+--------------------------------------------------------------*/
+function prodGrid($cat_id, $best_seller_val){?>
+	<div class="grid"><?php
+		$query = new wp_query(array(
+			'posts_per_page' => -1,
+			'post_type' => 'food',
+			'cat' => $cat_id,
+			'meta_key' => 'best_seller',
+			'meta_value' => $best_seller_val
+		));
+
+		while($query->have_posts()):$query->the_post();
+			$category = get_the_category($post->ID); ?>
+			<div class="cols cols-3 <?php echo $category[0]->slug ?>">
+				<a class="frame" href="<?php the_permalink(); ?>">
+					<figure><img src="<?php the_post_thumbnail_url(); ?>" alt="" /></figure>
+					<h4><?php the_title(); ?></h4>
+					<div class="excerpt"><?php the_field('quick_description'); ?></div>
+				</a>
+			</div><?php
+		endwhile; ?>
+	</div><?php
 }
 
 /*--------------------------------------------------------------

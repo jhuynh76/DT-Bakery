@@ -64,10 +64,11 @@ get_header();
 	endwhile; ?>
 </section>
 
-<!-- Columned content -->
-<Section class="columnedContent">
+<!-- BEST SELLERS -->
+<section id="productList">
 	<div class="container">
-		<?php columnedContent(); ?>
+		<h2 class="heading">Our Best Sellers</h2>
+		<?php prodGrid('', 'Yes'); ?>
 	</div>
 </section>
 

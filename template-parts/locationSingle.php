@@ -11,7 +11,7 @@
 
 <?php customHeader(''); ?>
 
-<section id="locSingle">
+<section id="infoAndMap">
 	<div class="menuOptions flex">
 		<div class="cols cols-3 optionLocation">
 			<h4>Location</h4>
